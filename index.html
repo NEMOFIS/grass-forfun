@@ -1,96 +1,113 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Epoch Points Checker — Simple</title>
+  <script>
+    const REWARD_TABLE = [{"min": 5000000, "max": null, "op": "gt", "label": ">5,000,000", "rewards": {"Epoch 1": 300, "Epoch 2": 280, "Epoch 3": 280, "Epoch 4": 300, "Epoch 5": 250, "Epoch 6": 280, "Epoch 7": 300, "Epoch 8": 300, "Epoch 9": 300, "Epoch 10": 300, "Epoch 11": 300}}, {"min": 2000000, "max": 4999999, "op": "range", "label": "2,000,000 - 4,999,999", "rewards": {"Epoch 1": 40, "Epoch 2": 40, "Epoch 3": 40, "Epoch 4": 40, "Epoch 5": 50, "Epoch 6": 50, "Epoch 7": 50, "Epoch 8": 50, "Epoch 9": 50, "Epoch 10": 50, "Epoch 11": 50}}, {"min": 600000, "max": 1999999, "op": "range", "label": "600,000 - 1,999,999", "rewards": {"Epoch 1": 6, "Epoch 2": 6, "Epoch 3": 6, "Epoch 4": 6, "Epoch 5": 8, "Epoch 6": 8, "Epoch 7": 8, "Epoch 8": 8, "Epoch 9": 8, "Epoch 10": 8, "Epoch 11": 8}}, {"min": 500000, "max": 599999, "op": "range", "label": "500,000 - 599,999", "rewards": {"Epoch 1": 6, "Epoch 2": 6, "Epoch 3": 6, "Epoch 4": 6, "Epoch 5": 8, "Epoch 6": 8, "Epoch 7": 8, "Epoch 8": 8, "Epoch 9": 8, "Epoch 10": 8, "Epoch 11": 8}}, {"min": 400000, "max": 499999, "op": "range", "label": "400,000 - 499,999", "rewards": {"Epoch 1": 5, "Epoch 2": 5, "Epoch 3": 5, "Epoch 4": 5, "Epoch 5": 5, "Epoch 6": 7, "Epoch 7": 7, "Epoch 8": 7, "Epoch 9": 8, "Epoch 10": 8, "Epoch 11": 8}}, {"min": 300000, "max": 399999, "op": "range", "label": "300,000 - 399,999", "rewards": {"Epoch 1": 4, "Epoch 2": 4, "Epoch 3": 4, "Epoch 4": 4, "Epoch 5": 4, "Epoch 6": 4, "Epoch 7": 5, "Epoch 8": 5, "Epoch 9": 6, "Epoch 10": 6, "Epoch 11": 6}}, {"min": 200000, "max": 299999, "op": "range", "label": "200,000 - 299,999", "rewards": {"Epoch 1": 4, "Epoch 2": 4, "Epoch 3": 4, "Epoch 4": 4, "Epoch 5": 4, "Epoch 6": 4, "Epoch 7": 5, "Epoch 8": 5, "Epoch 9": 5, "Epoch 10": 5, "Epoch 11": 5}}, {"min": 60000, "max": 199999, "op": "range", "label": "60,000 - 199,999", "rewards": {"Epoch 1": 3, "Epoch 2": 3, "Epoch 3": 3, "Epoch 4": 3, "Epoch 5": 3, "Epoch 6": 3, "Epoch 7": 3, "Epoch 8": 3, "Epoch 9": 3, "Epoch 10": 3, "Epoch 11": 3}}, {"min": 1000, "max": 59000, "op": "range", "label": "1,000 - 59,000", "rewards": {"Epoch 1": 1, "Epoch 2": 1, "Epoch 3": 1, "Epoch 4": 1, "Epoch 5": 1, "Epoch 6": 1, "Epoch 7": 1, "Epoch 8": 2, "Epoch 9": 2, "Epoch 10": 2, "Epoch 11": 2}}];
+    function parseNumber(input) {
+      if (!input) return NaN;
+      let s = (""+input).trim().toLowerCase().replace(/,/g, "");
+      const suf = s.match(/([0-9]*\.?[0-9]+)\s*([mk])$/);
+      if (suf) { const n = parseFloat(suf[1]); const mult = suf[2]==='m'?1_000_000:1_000; return Math.round(n*mult); }
+      const num = Number(s); return isNaN(num) ? NaN : Math.round(num);
+    }
+    function rewardFor(points, epochIndex) {
+      const epochKey = "Epoch " + epochIndex;
+      for (const row of REWARD_TABLE) {
+        if (row.op === 'gt') { if (points > row.min) return row.rewards[epochKey]; }
+        else { if (points >= row.min && points <= row.max) return row.rewards[epochKey]; }
+      }
+      return 0;
+    }
+    function fmt(n) { return n.toLocaleString(); }
+    function checkAll() {
+      const proxyOn = document.getElementById('proxy').checked;
+      let totalPts = 0;
+      let totalEarn = 0;
+      let notEligible = false;
+
+      for (let i=1;i<=11;i++) {
+        const v = document.getElementById('epoch'+i).value;
+        const pts = parseNumber(v);
+        if (!isNaN(pts)) totalPts += pts;
+        const earn = isNaN(pts) ? 0 : rewardFor(pts, i);
+        totalEarn += earn;
+        if (proxyOn && i >= 5 && i <= 11 && !isNaN(pts) && pts > 500000) notEligible = true;
+      }
+
+      const status = (proxyOn && notEligible) ? "Not Eligible" : "Eligible";
+      document.getElementById('totalPoints').textContent = fmt(totalPts);
+      document.getElementById('totalEarning').textContent = fmt(totalEarn);
+      document.getElementById('eligText').textContent = status;
+      document.getElementById('resultCard').style.display = 'block';
+    }
+    function clearAll() {
+      for (let i=1;i<=11;i++) document.getElementById('epoch'+i).value = "";
+      document.getElementById('resultCard').style.display = 'none';
+    }
+  </script>
+  <style>
+    :root { --bg:#a6d8f5; --ink:#1e293b; --radius:20px; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+           color: var(--ink); background: #000; display:flex; justify-content:center; min-height:100vh; padding:24px; }
+    .panel { background: var(--bg); border-radius: var(--radius); padding: 24px; width: min(980px, 96vw);
+              box-shadow: 0 10px 25px rgba(0,0,0,.25); }
+    h1 { text-align:center; margin: 4px 0 20px; letter-spacing:1px; }
+    .row { display:grid; grid-template-columns: 110px 1fr; align-items:center; gap:10px; margin-bottom:12px; }
+    label { font-weight:700; }
+    input[type="text"] { border:none; outline:none; border-radius: 24px; padding: 10px 14px; font-size: 16px;
+                         background:#fff; width:100%; box-shadow: inset 0 1px 2px rgba(0,0,0,.15); }
+    .controls { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top: 10px; }
+    button { border:none; padding:10px 18px; border-radius: 12px; font-weight:700; cursor:pointer; background:#fff;
+              box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+    .card { background:#e9f7ff; border-radius:12px; padding:16px; margin-top:16px; }
+    .grid3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+    .kpi { background:#fff; border-radius:12px; padding:12px; text-align:center; }
+    .kpi h3 { margin:6px 0 6px; font-size:14px; opacity:.8; }
+    .kpi .val { font-size:22px; font-weight:800; }
+    @media (max-width: 640px) { .grid3 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Epoch Points Checker</h1>
+    <div id="inputs">
+      <script>
+        let htmlInputs = "";
+        for (let i=1;i<=11;i++) {
+          htmlInputs += `<div class="row"><label for="epoch${i}">Epoch ${i}</label><input id="epoch${i}" type="text" inputmode="decimal" placeholder="e.g. 5.1m or 5100000"/></div>`;
+        }
+        document.write(htmlInputs);
+      </script>
+      <div class="controls">
+        <label><input id="proxy" type="checkbox"/> Proxy?</label>
+        <div style="display:flex; gap:8px;">
+          <button onclick="clearAll()">Clear</button>
+          <button onclick="checkAll()">Check</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultCard" class="card" style="display:none;">
+      <div class="grid3">
+        <div class="kpi">
+          <h3>Total Points</h3>
+          <div class="val" id="totalPoints">0</div>
+        </div>
+        <div class="kpi">
+          <h3>Total Earning</h3>
+          <div class="val" id="totalEarning">0</div>
+        </div>
+        <div class="kpi">
+          <h3>Status</h3>
+          <div class="val" id="eligText">Eligible</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
