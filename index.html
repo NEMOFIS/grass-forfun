@@ -70,9 +70,29 @@
     .kpi h3 { margin:6px 0 6px; font-size:14px; opacity:.8; }
     .kpi .val { font-size:22px; font-weight:800; }
     @media (max-width: 640px) { .grid3 { grid-template-columns: 1fr; } }
+    /* bottom-center round logo */
+    #site-logo{
+      position: fixed;
+      left: 50%;
+      bottom: 10px;              /* space from bottom */
+      transform: translateX(-50%);
+      width: 48px;               /* size */
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;         /* crop nicely into the circle */
+      background: #fff;          /* white ring */
+      padding: 4px;
+      box-shadow: 0 6px 16px rgba(0,0,0,.18);
+      z-index: 9999;
+    }
+    @media (max-width:420px){
+      #site-logo{ width:44px; height:44px; }
+    }
   </style>
 </head>
 <body>
+  <!-- Bottom-center logo -->
+  <img id="site-logo" src="logo.png" alt="Logo" />
   <div class="panel">
     
     <h1>Grass Checker (For Fun)</h1>
